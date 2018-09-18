@@ -24,7 +24,10 @@ TC is integrated with pytorch so we can use it to create fast GPU kernels for py
 - [Build or install TC library](https://github.com/facebookresearch/TensorComprehensions/blob/master/docs/source/installation.rst) first. 
     - This [dockerfile](Dockerfile), a slightly modified version of TC build dockerfile, is what I used to build the TC library for PyTorch 0.4.0.
 - Clone this repo `git clone https://github.com/MattPainter01/Grouped3DConvPyTorch`
-- Add to your python path through suitable `export PYTHONPATH=...` command or [adding a path configuration file (.pth) in site-packages](https://docs.python.org/3/library/site.html).
+- Link to python by: 
+    - Add to your python path through suitable `export PYTHONPATH=...` command or
+    - [adding a path configuration file (.pth) in site-packages](https://docs.python.org/3/library/site.html) or
+    - `pip install git+https://github.com/MattPainter01/Grouped3DConvPyTorch.git`
 
 # Usage
 Usage simple: 
