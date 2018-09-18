@@ -1,2 +1,2 @@
 torch==0.4
-tensor_comprehensions==0.1.1
+git+git://github.com/facebookresearch/TensorComprehensions@220b590
