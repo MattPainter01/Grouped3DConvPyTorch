@@ -4,8 +4,8 @@
 # Motivation
 Grouped convolutions for most cases should be faster than group-1 convolutions since there is less parameters and less operations. In pytorch 2D grouped convolutions are faster than their group-1 counterparts but for 3D convolutions this is not the case. 
 
-The image diagrams a convolution with two groups.
-![Alt text](./group_conv.svg)
+The image ([source: Yani Ioannou](https://blog.yani.io/filter-group-tutorial/)) diagrams a 2D convolution with two groups.
+![Image from https://blog.yani.io/filter-group-tutorial/](./group_conv.svg)
 
 The table demonstrates slow 3D grouped convolutions for 1000 forward-backward convolution iterations of image sized 50x50(x50 for 3D) with kernel size 3 and N input and output channels.
 
@@ -14,7 +14,7 @@ The table demonstrates slow 3D grouped convolutions for 1000 forward-backward co
 |      1        | 1.68339s      | 126.51723s    |
 |      N        | 1.49539s      | 509.46911s    |
 
-We can see that the grouped 2D convolution is slightly quicker than the group-1 version, but in 3D the grouped convolution is many times slower.
+We can see that the grouped 2D convolution is slightly quicker than the group-1 version, but in 3D the grouped convolution is many times slower than the group-1 version.
 
 # Tensor Comprehensions (TC)
 [Tensor comprehensions](https://github.com/facebookresearch/TensorComprehensions) is a Facebook Research library that "automatically synthesize[s] high-performance machine learning kernels".
