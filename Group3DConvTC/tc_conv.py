@@ -2,7 +2,7 @@ import torch
 import tensor_comprehensions as tc
 
 
-class Grouped3D(torch.nn.Module): # TODO: Implement bias
+class Conv3DTC(torch.nn.Module): # TODO: Implement bias
     def __init__(self, I, C, K, groups=1, padding=0, bias=False, from_cache=False, cache_file='tc_group3d.pt', tuner_config=None):
         '''
         Module providing grouped 3d convolution using tensor comprehensions

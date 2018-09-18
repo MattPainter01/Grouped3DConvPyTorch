@@ -32,8 +32,8 @@ TC is integrated with pytorch so we can use it to create fast GPU kernels for py
 # Usage
 Usage simple: 
 ```python
-from Group3DConvTC.tc_conv import Grouped3D
-g3d = Grouped3D(...)
+from Group3DConvTC.tc_conv import Conv3DTC
+g3d = Conv3DTC(...)
 output = g3d(data)
 ```
 

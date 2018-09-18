@@ -3,7 +3,7 @@ import time
 import torch
 from torch.nn import Conv3d
 
-from Group3DConvTC.tc_conv import Grouped3D
+from Group3DConvTC.tc_conv import Conv3DTC
 
 
 ######### Params
@@ -19,7 +19,7 @@ X = torch.randn(B, C, 50, 50, 50, requires_grad=True).cuda()
 X1 = X.clone().data
 X1.requires_grad = True
 
-tc_gc = Grouped3D(C, O, K, G, from_cache=True, cache_file='/Grouped3DConvPyTorch/grp-b4-hw50-c64-o64-g64-k3.pt').cuda()
+tc_gc = Conv3DTC(C, O, K, G, from_cache=True, cache_file='/Grouped3DConvPyTorch/grp-b4-hw50-c64-o64-g64-k3.pt').cuda()
 W = tc_gc.W.clone().data.view(O, C / G, K, K, K).cuda()
 W = torch.nn.Parameter(W)
 
