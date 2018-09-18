@@ -6,7 +6,6 @@ Grouped convolutions for most cases should be faster than group-1 convolutions s
 
 The image diagrams a convolution with two groups.
 ![Alt text](./group_conv.svg)
-<img src="./controllers_brief.svg">
 
 The table demonstrates slow 3D grouped convolutions for 1000 forward-backward convolution iterations of image sized 50x50(x50 for 3D) with kernel size 3 and N input and output channels.
 
