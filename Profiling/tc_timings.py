@@ -5,7 +5,7 @@ from torch.nn.functional import conv3d
 
 torch_3d = conv3d
 from torch.nn import Conv3d
-from Grouped3DConvPyTorch.tc_conv import Grouped3D
+from Group3DConvTC.tc_conv import Grouped3D
 
 
 ######### Params

@@ -29,7 +29,7 @@ RUN . /opt/conda/anaconda/bin/activate && \
     conda update -y -n root conda && \
     conda install -y conda-build && \
     conda install -y pyyaml mkl-include pytest && \
-    conda install -y -c pytorch pytorch torchvision cuda90 && \
+    conda install -y -c pytorch pytorch=0.4.0 torchvision cuda90 && \
     conda install -y -c nicolasvasilache llvm-trunk halide && \
     conda config --add channels nicolasvasilache && \
     conda config --add channels anaconda && \
