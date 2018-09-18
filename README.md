@@ -29,7 +29,7 @@ To install the module just `git clone https://github.com/MattPainter01/Grouped3D
 # Usage
 Usage simple: 
 ```python
-from Grouped3DConvPyTorch.tc_conv import Grouped3D
+from Group3DConvTC.tc_conv import Grouped3D
 g3d = Grouped3D(...)
 output = g3d(data)
 ```
