@@ -1,0 +1,3 @@
+*.pt
+.idea
+__pycache__
