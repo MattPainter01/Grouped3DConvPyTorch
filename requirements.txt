@@ -1,0 +1,2 @@
+torch==0.4
+tensor_comprehensions==0.1.1

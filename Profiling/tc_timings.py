@@ -1,10 +1,8 @@
-import torch
 import time
 
-from torch.nn.functional import conv3d
-
-torch_3d = conv3d
+import torch
 from torch.nn import Conv3d
+
 from Group3DConvTC.tc_conv import Grouped3D
 
 

@@ -7,12 +7,12 @@ Grouped convolutions for most cases should be faster than group-1 convolutions s
 The image ([source: Yani Ioannou](https://blog.yani.io/filter-group-tutorial/)) diagrams a 2D convolution with two groups.
 ![Image from https://blog.yani.io/filter-group-tutorial/](./group_conv.svg)
 
-The table demonstrates slow 3D grouped convolutions for 1000 forward-backward convolution iterations of image sized 50x50(x50 for 3D) with kernel size 3 and N input and output channels.
+The table demonstrates slow 3D grouped convolutions for 1000 forward-backward convolution iterations of image sized 50x50(x50 for 3D) with kernel size 3 and 64 input and output channels.
 
 |    Groups     | 2D            | 3D            |
 | :-----------: | :-----------: | :-----------: |
 |      1        | 1.68339s      | 126.51723s    |
-|      N        | 1.49539s      | 509.46911s    |
+|      64       | 1.49539s      | 509.46911s    |
 
 We can see that the grouped 2D convolution is slightly quicker than the group-1 version, but in 3D the grouped convolution is many times slower than the group-1 version.
 
@@ -25,7 +25,7 @@ TC is integrated with pytorch so we can use it to create fast GPU kernels for py
     - This [dockerfile](Dockerfile), a slightly modified version of TC build dockerfile, is what I used to build the TC library for PyTorch 0.4.0.
 - Clone this repo `git clone https://github.com/MattPainter01/Grouped3DConvPyTorch`
 - Link to python by: 
-    - Add to your python path through suitable `export PYTHONPATH=...` command or
+    - Adding to your python path through suitable `export PYTHONPATH=...` command or
     - [adding a path configuration file (.pth) in site-packages](https://docs.python.org/3/library/site.html) or
     - `pip install git+https://github.com/MattPainter01/Grouped3DConvPyTorch.git`
 
