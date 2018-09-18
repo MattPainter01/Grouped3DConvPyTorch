@@ -17,13 +17,14 @@ The table demonstrates slow 3D grouped convolutions for 1000 forward-backward co
 We can see that the grouped 2D convolution is slightly quicker than the group-1 version, but in 3D the grouped convolution is many times slower than the group-1 version.
 
 # Tensor Comprehensions (TC)
-[Tensor comprehensions](https://github.com/facebookresearch/TensorComprehensions) is a Facebook Research library that "automatically synthesize[s] high-performance machine learning kernels".
+[Tensor comprehensions](https://github.com/facebookresearch/TensorComprehensions) is a FacebookResearch library that "automatically synthesize[s] high-performance machine learning kernels".
 TC is integrated with pytorch so we can use it to create fast GPU kernels for pytorch modules - although most modules implemented by PyTorch will be faster than any automatically generated versions. 
 
 # Installation
-The grouped 3d convolution module requires the tensor comprehensions library, so this needs to [built or installed](https://github.com/facebookresearch/TensorComprehensions/blob/master/docs/source/installation.rst) first. This [dockerfile](Dockerfile), a slightly modified version of TC build dockerfile, is what I used to build the TC library for PyTorch 0.4.0. 
-
-To install the module just `git clone https://github.com/MattPainter01/Grouped3DConvPyTorch` and add to your python path through suitable `export PYTHONPATH=...` command.
+- [Build or install TC library](https://github.com/facebookresearch/TensorComprehensions/blob/master/docs/source/installation.rst) first. 
+    - This [dockerfile](Dockerfile), a slightly modified version of TC build dockerfile, is what I used to build the TC library for PyTorch 0.4.0.
+- Clone this repo `git clone https://github.com/MattPainter01/Grouped3DConvPyTorch`
+- Add to your python path through suitable `export PYTHONPATH=...` command or [adding a path configuration file (.pth) in site-packages](https://docs.python.org/3/library/site.html).
 
 # Usage
 Usage simple: 
