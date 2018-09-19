@@ -37,10 +37,11 @@ class Conv3DTC(torch.nn.Module): # TODO: Implement bias
             if tuner_config is None:
                 tuner_config = tc.TunerConfig().generations(25).pop_size(100).number_elites(15)
             TC = tc.define(group_convolution, tc.make_autotuned_options_factory(
+                    starting_options='naive',
                     tuner_config=tuner_config,
                     cache_filename=cache_file,
                     store_to_cache=True,
-                    load_from_cache=True
+                    load_from_cache=False
                     ))
         else:
             TC = tc.define(group_convolution, tc.make_load_from_cache_options_factory(cache_file))
@@ -79,9 +80,8 @@ class Conv3DTC(torch.nn.Module): # TODO: Implement bias
     def forward(self, x):
         x = x.view(x.shape[0], self.groups, x.shape[1]/self.groups, x.shape[-3], x.shape[-2], x.shape[-1])
         if self.padding[0] > 0 or self.padding[1] > 0 or self.padding[2] > 0:
-            t, h, w = self.padding[0]//2, self.padding[1]//2, self.padding[2]//2
+            t, h, w = self.padding[0], self.padding[1], self.padding[2]
             x = self.pad(x, (w,w,h,h,t,t))
         x = self.convolution_grouped(x, self.W)
         x = x.view(x.shape[0], x.shape[1]*x.shape[2], x.shape[-3], x.shape[-2], x.shape[-1])
         return x
-
