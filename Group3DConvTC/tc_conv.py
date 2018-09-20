@@ -36,8 +36,9 @@ class Conv3DTC(torch.nn.Module): # TODO: Implement bias
         if not from_cache:
             if tuner_config is None:
                 tuner_config = tc.TunerConfig().generations(25).pop_size(100).number_elites(15)
+            conv_option = tc.tclib.MappingOptions('naive').tile([1,1]).mapToThreads([4,16,4]).mapToBlocks([256,256]).unroll(1)
             TC = tc.define(group_convolution, tc.make_autotuned_options_factory(
-                    starting_options='naive',
+                    starting_options=conv_option,
                     tuner_config=tuner_config,
                     cache_filename=cache_file,
                     store_to_cache=True,
